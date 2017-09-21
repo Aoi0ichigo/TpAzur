@@ -21,7 +21,7 @@ and open the template in the editor.
               // Appel au fichier permettant la connection à la BD
              require dirname(__FILE__)."/Connection.php";
              // Selection de la base de données et requete SQL
-                $requete="select * from vol natural join aeroport group by numero";
+                $requete="select numero,nomAero,dateDepart,heureDepart,nomAero,dateArrivee,heureArrivee,prix from vol natural join aeroport ";
             // Remplissage d'un tableau correspondant à chaque vol
                 $bdd= connect();
                 $i=0;
@@ -37,7 +37,7 @@ and open the template in the editor.
                             "depart"=>$ligne->nomAero,
                             "dateDepart"=>$ligne->dateDepart,
                             "heureDepart"=>$ligne->heureDepart,
-                            "arrivee"=>$ligne->nomAero,
+                            "arrivee"=>$ligne->arrivee,
                             "dateArrivee"=>$ligne->dateArrivee,
                             "heureArrivee"=>$ligne->heureArrivee,
                             "prix"=>$ligne->prix];

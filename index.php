@@ -17,27 +17,28 @@ and open the template in the editor.
             else
                 $action = $_REQUEST['action'];
 
-            // vue qui crée l'en-tête de la page
+            // vue qui crï¿½e l'en-tï¿½te de la page
             include("vues/v_entete.php") ;
 
             switch($action)
             {
                 case 'accueil':
-                      // vue qui crée le contenu de la page d'accueil
+                      // vue qui crï¿½e le contenu de la page d'accueil
                     include("vues/v_accueil.php");
                     break;
                 case 'voirResa':
-                      // vue qui crée le contenu de la page 
+                      // vue qui crï¿½e le contenu de la page 
                     echo"reservation";
                     break;
                 case 'voirVols':
-                      // vue qui crée le contenu de la page
+                      // vue qui crï¿½e le contenu de la page
                     $lesVols = getLesVols();
                     include("vues/v_vols.php");
+                    echo "salut lÃ©a" ;
                     break;
             }
 
-            // vue qui crée le pied de page
+            // vue qui crï¿½e le pied de page
             include("vues/v_pied.php") ;
         ?>
     </body>

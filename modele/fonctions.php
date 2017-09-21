@@ -21,24 +21,29 @@ and open the template in the editor.
               // Appel au fichier permettant la connection à la BD
              require dirname(__FILE__)."/Connection.php";
              // Selection de la base de données et requete SQL
-                $requete="select * from Vols naturel join Aeroport";
+                $requete="select * from vol natural join aeroport group by numero";
             // Remplissage d'un tableau correspondant à chaque vol
-               $bdd= connect();
+                $bdd= connect();
+                $i=0;
                 try 
                 {	
                     $sql = $bdd->prepare($requete);
                     $sql->execute();
+                    
                     while($ligne=$sql->fetch(PDO::FETCH_OBJ))
                     { 
-                        $unVol=array($numero => $ligne->numVol ,
-                    $depart=>$ligne->nomAero ,
-                    $dateDepart=>$ligne->dateDepart ,
-                    $heurDepart=>$ligne->heureDepart ,
-                    $arrivee=$ligne->arrivee,
-                    $dateArrivee=$ligne->dateArrivee ,
-                    $heureArrivee=$ligne->heureArrivee ,
-                    $prix=$ligne->prix);
+                        
+                        $unVol[$i]= ["numero"=>$ligne->numero,
+                            "depart"=>$ligne->nomAero,
+                            "dateDepart"=>$ligne->dateDepart,
+                            "heureDepart"=>$ligne->heureDepart,
+                            "arrivee"=>$ligne->nomAero,
+                            "dateArrivee"=>$ligne->dateArrivee,
+                            "heureArrivee"=>$ligne->heureArrivee,
+                            "prix"=>$ligne->prix];
+                        $i++;
                     } 
+                    
                 }
                 catch(PDOException $e)
                 {
@@ -46,8 +51,10 @@ and open the template in the editor.
                 }
 
              // Remplissage du tableau multi-dimensionnel $vols avec chacun des vols
-                
 
+                for($r=0;$r<$i;$r++){
+                    array_push($vols,$unVol[$r]);
+                }
 
             // Retourner le tableau
 

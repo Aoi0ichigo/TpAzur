@@ -12,7 +12,6 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        //test
             if(!isset($_REQUEST['action']))
                 $action = 'accueil';
             else
@@ -29,11 +28,13 @@ and open the template in the editor.
                     break;
                 case 'voirResa':
                       // vue qui crï¿½e le contenu de la page 
-                    echo"reservation";
+                    include("modele/fonctions.php");
+                    $reservations = getLesResa();
+                    include("vues/v_reservation.php");
                     break;
                 case 'voirVols':
                       // vue qui crï¿½e le contenu de la page
-                      // vue qui crée le contenu de la page
+                      // vue qui crï¿½e le contenu de la page
                     include("modele/fonctions.php");
                     $lesVols = getLesVols();
                     include("vues/v_vols.php");

@@ -14,15 +14,15 @@ and open the template in the editor.
             function getLesVols()
             {
 
-            // Déclaration d'un tableau
+            // Dï¿½claration d'un tableau
 
             $vols = array();
 
-              // Appel au fichier permettant la connection à la BD
+              // Appel au fichier permettant la connection ï¿½ la BD
              require dirname(__FILE__)."/Connection.php";
-             // Selection de la base de données et requete SQL
-                $requete="select numero,nomAero,dateDepart,heureDepart,nomAero,dateArrivee,heureArrivee,prix from vol natural join aeroport ";
-            // Remplissage d'un tableau correspondant à chaque vol
+             // Selection de la base de donnï¿½es et requete SQL
+                $requete="select numero,nomAero as 'a1',dateDepart,heureDepart,nomAeroport as 'a2' ,dateArrivee,heureArrivee,prix from aeroport  join vol join aeroport2 on numAeroport=arrivee and numAero=depart where nomAero=(select nomAero from aeroport where numAero=depart) and nomAeroport=(select nomAeroport from aeroport2 where numAeroport=arrivee)";
+            // Remplissage d'un tableau correspondant ï¿½ chaque vol
                 $bdd= connect();
                 $i=0;
                 try 
@@ -34,10 +34,10 @@ and open the template in the editor.
                     { 
                         
                         $unVol[$i]= ["numero"=>$ligne->numero,
-                            "depart"=>$ligne->nomAero,
+                            "depart"=>$ligne->a1,
                             "dateDepart"=>$ligne->dateDepart,
                             "heureDepart"=>$ligne->heureDepart,
-                            "arrivee"=>$ligne->arrivee,
+                            "arrivee"=>$ligne->a2,
                             "dateArrivee"=>$ligne->dateArrivee,
                             "heureArrivee"=>$ligne->heureArrivee,
                             "prix"=>$ligne->prix];
@@ -47,7 +47,7 @@ and open the template in the editor.
                 }
                 catch(PDOException $e)
                 {
-                    echo "Erreur dans la requête" . $e->getMessage();
+                    echo "Erreur dans la requï¿½te" . $e->getMessage();
                 }
 
              // Remplissage du tableau multi-dimensionnel $vols avec chacun des vols
@@ -61,6 +61,54 @@ and open the template in the editor.
             return $vols;
 
             }
-        ?>
+            
+            function getLesResa(){
+               
+            // Dï¿½claration d'un tableau
+
+            $reservations = array();
+
+              // Appel au fichier permettant la connection ï¿½ la BD
+             require dirname(__FILE__)."/Connection.php";
+             // Selection de la base de donnï¿½es et requete SQL
+                $requete="select * from reservation ";
+            // Remplissage d'un tableau correspondant ï¿½ chaque reservation
+                $bdd= connect();
+                $i=0;
+                try 
+                {	
+                    $sql = $bdd->prepare($requete);
+                    $sql->execute();
+                    
+                    while($ligne=$sql->fetch(PDO::FETCH_OBJ))
+                    { 
+                        
+                        $uneResa[$i]= [
+                            "nomClient"=>$ligne->nomClient,
+                            "prenomClient"=>$ligne->prenomClient,
+                            "numero"=>$ligne->numVol,
+                            "qdPlace"=>$ligne->nbPlace
+                        ];
+                        $i++;
+                    } 
+                    
+                }
+                catch(PDOException $e)
+                {
+                    echo "Erreur dans la requï¿½te" . $e->getMessage();
+                }
+
+             // Remplissage du tableau multi-dimensionnel $vols avec chacun des vols
+
+                for($r=0;$r<$i;$r++){
+                    array_push($reservations,$uneResa[$r]);
+                }
+
+            // Retourner le tableau
+
+            return $reservations;
+            }
+         ?>
+        
     </body>
 </html>

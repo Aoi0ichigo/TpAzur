@@ -29,7 +29,7 @@ and open the template in the editor.
                         <td>$prenomClient</td>
                         <td>$numeroVol</td>
                         <td>$qdPlace</td>
-                        <td>pdf</td>
+                        <td><a href='fpdf/pdf.php'>pdf</a></td>
                     </tr>
                 </table>";
             }

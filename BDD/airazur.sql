@@ -42,7 +42,47 @@ INSERT INTO `aeroport` (`numAero`, `nomAero`, `pays`) VALUES
 (2, 'Dakar', 'Sénégal');
 
 -- --------------------------------------------------------
+--
+-- Structure de la table `aeroport`
+--
 
+CREATE TABLE IF NOT EXISTS `aeroport2` (
+  `numAeroport` int(50) NOT NULL AUTO_INCREMENT,
+  `nomAeroport` varchar(255) DEFAULT NULL,
+  `pays` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`numAeroport`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `aeroport2`
+--
+
+INSERT INTO `aeroport2` (`numAeroport`, `nomAeroport`, `pays`) VALUES
+(1, 'Paris CGG', 'France'),
+(2, 'Dakar', 'Sénégal');
+
+-- --------------------------------------------------------
+--
+-- Structure de la table `reservation`
+--
+
+CREATE TABLE IF NOT EXISTS `reservvation` (
+  `numResa` int(50) NOT NULL AUTO_INCREMENT,
+  `nomClient` varchar(255) DEFAULT NULL,
+  `prenomClient` varchar(50) DEFAULT NULL,
+  `numVol` varchar(50) DEFAULT NULL,
+  `nbPlace` int(5) DEFAULT NULL,
+  PRIMARY KEY (`numResa`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `aeroport`
+--
+
+INSERT INTO `reservation` (`numResa`, `nomClient`, `prenomClient`,`numVol`,`nbPlace`) VALUES
+(1, 'Boss', 'Anne','AIR5007',3);
+
+-- --------------------------------------------------------
 --
 -- Structure de la table `vol`
 --

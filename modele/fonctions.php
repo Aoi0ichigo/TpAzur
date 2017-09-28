@@ -108,6 +108,14 @@ and open the template in the editor.
             // Retourner le tableau
 
             return $reservations;
+            
+            
+            function reserverVol() {
+                // récup numéro vol
+                $numero = $_REQUEST["numero"];
+                return $numero;
+            }
+
             }
             
             function faireResa(){

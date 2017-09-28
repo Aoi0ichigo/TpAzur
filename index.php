@@ -42,7 +42,9 @@ and open the template in the editor.
                     break;
                 case 'faireResa':
                     include("modele/fonctions.php");
+                    $numero = reserverVol();
                     include("vues/v_faireResa.php");
+                    break;
             }
 
             // vue qui cr�e le pied de page

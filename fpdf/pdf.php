@@ -1,12 +1,13 @@
 <?php
 // la classe de fonctions
 require('fpdf.php');
+require('../modele/Connection.php');
 // connexion base de données
 $db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
 $db_name = "airazur";
-function connect($db_server, $db_user, $db_pass, $db) {
+function conn($db_server, $db_user, $db_pass, $db) {
     if (!($link=mysql_connect($db_server,$db_user,$db_pass))) {
         exit();
     }
@@ -15,7 +16,6 @@ function connect($db_server, $db_user, $db_pass, $db) {
     }
     return $link;
 }
-$connexion=connect($db_server,$db_user,$db_pass,$db_name);
 
 // classe étendue pour créer en-tête et pied de page
 class PDF extends FPDF
@@ -54,30 +54,40 @@ $pdf->AliasNBPages();
 $pdf->AddPage();
 
 // requête
-$sql = mysql_query("SELECT * FROM reservation join vol join aeroport on numero=numvol and numero numVol ORDER BY idResa",$connexion);
+$requete = ("SELECT * FROM reservation join vol join aeroport on numero=numvol and numAero=depart ORDER BY idResa");
+$bdd= connect();
+    try 
+     {
+     $sql = $bdd->prepare($requete);
+     $sql->execute();
 
 // on boucle  
-    while ($row = mysql_fetch_array($sql)) {
-        $id = $row["idResa"];
-        $numero = $row["numero"];
-        $nom = $row["nom"];
-        $prenom = $row["prenom"];
-        $nbPlace = $row["nbPlace"];
-        // titre en gras
-        $pdf->SetFont('Arial','B',10);
-        $pdf->Write(5,$numero);
-        $pdf->Ln();
-        // description
-        $pdf->SetFont('Arial','',10);
-        $pdf->Write(3,$nom);
-        $pdf->Ln();
-        $pdf->SetFont('Arial','',10);
-        $pdf->Write(3,$prenom);
-        $pdf->Ln();
-        $pdf->SetFont('Arial','',10);
-        $pdf->Write(3,$nbPlace);
-        $pdf->Ln();
-        $pdf->Ln();
+        while ($ligne=$sql->fetch(PDO::FETCH_OBJ)) {
+            $id = $ligne->idResa;
+            $numero = $ligne->numero;
+            $nom = $ligne->nomClient;
+            $prenom = $ligne->prenomClient;
+            $nbPlace = $ligne->nbPlace;
+            // titre en gras
+            $pdf->SetFont('Arial','B',10);
+            $pdf->Write(5,$numero);
+            $pdf->Ln();
+            // description
+            $pdf->SetFont('Arial','',10);
+            $pdf->Write(3,$nom);
+            $pdf->Ln();
+            $pdf->SetFont('Arial','',10);
+            $pdf->Write(3,$prenom);
+            $pdf->Ln();
+            $pdf->SetFont('Arial','',10);
+            $pdf->Write(3,$nbPlace);
+            $pdf->Ln();
+            $pdf->Ln();
+        }
+     }
+    catch(PDOException $e)
+    {
+        echo "Erreur dans la requ�te" . $e->getMessage();
     }
 // sortie du fichier
 $pdf->Output('reservation.pdf', 'I');

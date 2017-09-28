@@ -108,6 +108,10 @@ and open the template in the editor.
 
             return $reservations;
             }
+            
+            function faireResa(){
+                ;
+            }
          ?>
         
     </body>

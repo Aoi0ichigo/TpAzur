@@ -12,6 +12,7 @@ and open the template in the editor.
     <body>
         <div id="contenu">
             <?php
+            $_GET["numero"]="AIR";
             foreach($lesVols as $unVol)
             {
                     $numero = $unVol['numero'] ;
@@ -38,7 +39,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                     <td>$prix</td>
-                    <td><a href='index.php?action=voirResa'>reservation</a></td>
+                    <td><a href='index.php?action=faireResa and $_GET[numero]=$numero'>reservation</a></td>
                     </tr>
                 </table>";
             }

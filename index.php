@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+            session_start();
             if(!isset($_REQUEST['action']))
                 $action = 'accueil';
             else
@@ -39,6 +40,9 @@ and open the template in the editor.
                     $lesVols = getLesVols();
                     include("vues/v_vols.php");
                     break;
+                case 'faireResa':
+                    include("modele/fonctions.php");
+                    include("vues/v_faireResa.php");
             }
 
             // vue qui cr�e le pied de page

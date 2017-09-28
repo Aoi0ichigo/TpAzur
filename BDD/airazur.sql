@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 28 Septembre 2017 à 09:18
+-- Généré le :  Jeu 28 Septembre 2017 à 11:09
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -74,6 +74,8 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `nomClient` varchar(50) DEFAULT NULL,
   `prenomClient` varchar(50) DEFAULT NULL,
   `nbPlace` int(11) DEFAULT NULL,
+  `adress` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`numResa`),
   KEY `fk_resa_vol` (`numVol`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -82,51 +84,11 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 -- Contenu de la table `reservation`
 --
 
-INSERT INTO `reservation` (`numResa`, `numVol`, `nomClient`, `prenomClient`, `nbPlace`) VALUES
-(1, 'AIR5007', 'Bost', 'Anne', 3);
+INSERT INTO `reservation` (`numResa`, `numVol`, `nomClient`, `prenomClient`, `nbPlace`, `adress`, `email`) VALUES
+(1, 'AIR5007', 'Bost', 'Anne', 3, NULL, NULL);
 
 -- --------------------------------------------------------
---
--- Structure de la table `aeroport`
---
 
-CREATE TABLE IF NOT EXISTS `aeroport2` (
-  `numAeroport` int(50) NOT NULL AUTO_INCREMENT,
-  `nomAeroport` varchar(255) DEFAULT NULL,
-  `pays` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`numAeroport`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `aeroport2`
---
-
-INSERT INTO `aeroport2` (`numAeroport`, `nomAeroport`, `pays`) VALUES
-(1, 'Paris CGG', 'France'),
-(2, 'Dakar', 'Sénégal');
-
--- --------------------------------------------------------
---
--- Structure de la table `reservation`
---
-
-CREATE TABLE IF NOT EXISTS `reservvation` (
-  `numResa` int(50) NOT NULL AUTO_INCREMENT,
-  `nomClient` varchar(255) DEFAULT NULL,
-  `prenomClient` varchar(50) DEFAULT NULL,
-  `numVol` varchar(50) DEFAULT NULL,
-  `nbPlace` int(5) DEFAULT NULL,
-  PRIMARY KEY (`numResa`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `aeroport`
---
-
-INSERT INTO `reservation` (`numResa`, `nomClient`, `prenomClient`,`numVol`,`nbPlace`) VALUES
-(1, 'Boss', 'Anne','AIR5007',3);
-
--- --------------------------------------------------------
 --
 -- Structure de la table `vol`
 --

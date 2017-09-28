@@ -45,6 +45,9 @@ and open the template in the editor.
                     $numero = reserverVol();
                     include("vues/v_faireResa.php");
                     break;
+                case 'valideResa':
+                    include("vues/v_valideResa.php");
+                    break;
             }
 
             // vue qui cr�e le pied de page

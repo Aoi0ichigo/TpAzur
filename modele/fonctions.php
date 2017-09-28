@@ -71,13 +71,14 @@ and open the template in the editor.
               // Appel au fichier permettant la connection � la BD
              require dirname(__FILE__)."/Connection.php";
              // Selection de la base de donn�es et requete SQL
-                $requete="select * from reservation ";
+                $requete="select * from reservation ";/*where numVol=:numVol*/
             // Remplissage d'un tableau correspondant � chaque reservation
                 $bdd= connect();
                 $i=0;
                 try 
                 {	
                     $sql = $bdd->prepare($requete);
+                    //$sql->bindParam( ':numVol');
                     $sql->execute();
                     
                     while($ligne=$sql->fetch(PDO::FETCH_OBJ))

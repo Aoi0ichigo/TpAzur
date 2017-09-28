@@ -25,22 +25,62 @@ and open the template in the editor.
                     $prix=$unVol['prix'] ;
             echo"<table >
                     <tr>
-                    <td>$numero</td>
+                        <th>
+                            Vol
+                        </th>
+                        <th>
+                            Depart
+                        </th>
+                        <th>
+                            Date depart
+                        </th>
+                        <th>
+                            Heure depart
+                        </th>
+                        <th>
+                            Arrivee
+                        </th>
+                        <th>
+                            Date arrivee
+                        </th>
+                        <th>
+                            Heure arrivee
+                        </th>
+                        <th>
+                            prix
+                        </th>
                     </tr>
                     <tr>
-                    <td>$depart</td>
-                    <td>$dateDepart</td>
-                    <td>$heureDepart</td>
+                        <td>
+                            $numero
+                        </td>
+                        <td>
+                            $depart
+                        </td>
+                        <td>
+                            $dateDepart
+                        </td>
+                        <td>
+                            $heureDepart
+                        </td>
+                        <td>
+                            $arrivee
+                        </td>
+                        <td>
+                            $dateArrivee
+                        </td>
+                        <td>
+                            $heureArrivee
+                        </td>
+                        <td>
+                            $prix
+                        </td>
+                        <td>
+                            <a href='index.php?action=faireResa and $_GET[numero]=$numero'>reservation</a>
+                        </td>
                     </tr>
-                    <tr>
-                    <td>$arrivee</td>
-                    <td>$dateArrivee</td>
-                    <td>$heureArrivee</td>
-                    </tr>
-                    <tr>
-                    <td>$prix</td>
-                    <td><a href='index.php?action=faireResa and $_GET[numero]=$numero'>reservation</a></td>
-                    </tr>
+                    
+                    </br>
                 </table>";
             }
             ?>

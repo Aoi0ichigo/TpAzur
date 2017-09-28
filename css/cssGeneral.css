@@ -4,6 +4,10 @@ font:normal 100%/1.2em "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
 
 img {border: 0 none;}
 
+td{border: 1px solid black;}
+
+table{border-collapse: collapse;}
+
 
 fieldset {
  		display:block;

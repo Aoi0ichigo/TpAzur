@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 21 Septembre 2017 à 14:46
+-- Généré le :  Jeu 28 Septembre 2017 à 09:18
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -38,8 +38,52 @@ CREATE TABLE IF NOT EXISTS `aeroport` (
 --
 
 INSERT INTO `aeroport` (`numAero`, `nomAero`, `pays`) VALUES
-(1, 'Paris CGG', 'France'),
+(1, 'Paris CDG', 'France'),
 (2, 'Dakar', 'Sénégal');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `aeroport2`
+--
+
+CREATE TABLE IF NOT EXISTS `aeroport2` (
+  `numAeroport` int(11) NOT NULL AUTO_INCREMENT,
+  `nomAeroport` varchar(50) DEFAULT NULL,
+  `pays` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`numAeroport`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `aeroport2`
+--
+
+INSERT INTO `aeroport2` (`numAeroport`, `nomAeroport`, `pays`) VALUES
+(1, 'Paris CDG', 'France'),
+(2, 'Dakar', 'Sénégale');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservation`
+--
+
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `numResa` int(11) NOT NULL AUTO_INCREMENT,
+  `numVol` varchar(10) DEFAULT NULL,
+  `nomClient` varchar(50) DEFAULT NULL,
+  `prenomClient` varchar(50) DEFAULT NULL,
+  `nbPlace` int(11) DEFAULT NULL,
+  PRIMARY KEY (`numResa`),
+  KEY `fk_resa_vol` (`numVol`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `reservation`
+--
+
+INSERT INTO `reservation` (`numResa`, `numVol`, `nomClient`, `prenomClient`, `nbPlace`) VALUES
+(1, 'AIR5007', 'Bost', 'Anne', 3);
 
 -- --------------------------------------------------------
 --
@@ -99,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `vol` (
   `places` int(4) DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `fk_Tab_AeroD` (`depart`),
-  KEY `fk_Tab_AeroA` (`arrivee`)
+  KEY `fk_vol_a2` (`arrivee`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --

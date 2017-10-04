@@ -11,19 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <div id="contenu">
-            <?php
-            $_GET["numero"]="AIR";
-            foreach($lesVols as $unVol)
-            {
-                    $numero = $unVol['numero'] ;
-                    $depart=$unVol['depart'] ;
-                    $dateDepart=$unVol['dateDepart'] ;
-                    $heureDepart=$unVol['heureDepart'] ;
-                    $arrivee=$unVol['arrivee'] ;
-                    $dateArrivee=$unVol['dateArrivee'] ;
-                    $heureArrivee=$unVol['heureArrivee'] ;
-                    $prix=$unVol['prix'] ;
-            echo"<table >
+            <table >
                     <tr>
                         <th>
                             Vol
@@ -50,9 +38,23 @@ and open the template in the editor.
                             prix
                         </th>
                     </tr>
+            <?php
+            $_GET["numero"]="AIR";
+            foreach($lesVols as $unVol)
+            {
+                    $numero = $unVol['numero'] ;
+                    $_GET['numero']=$numero;
+                    $depart=$unVol['depart'] ;
+                    $dateDepart=$unVol['dateDepart'] ;
+                    $heureDepart=$unVol['heureDepart'] ;
+                    $arrivee=$unVol['arrivee'] ;
+                    $dateArrivee=$unVol['dateArrivee'] ;
+                    $heureArrivee=$unVol['heureArrivee'] ;
+                    $prix=$unVol['prix'] ;
+            echo"
                     <tr>
                         <td>
-                            $numero
+                            $_GET[numero]
                         </td>
                         <td>
                             $depart
@@ -76,14 +78,13 @@ and open the template in the editor.
                             $prix
                         </td>
                         <td>
-                            <a href='index.php?action=faireResa and $_GET[numero]=$numero'>reservation</a>
+                            <a href='index.php?action=faireResa&$numero'>reservation</a>
                         </td>
                     </tr>
-                    
-                    </br>
-                </table>";
+                ";
             }
             ?>
+            </table>
         </div>
     </body>
 </html>

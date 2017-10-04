@@ -17,7 +17,7 @@ and open the template in the editor.
             $reservation["numero"] =  $numero;
             // faire de même les autres paramètres…
         ?>
-            <form action="index?action=valideResa">
+            <form action="index?action=valideResa" methode="POST">
                 <input type="text" name="Nom" value="" size="30" />
                 <input type="text" name="Prénom" value="" size="30" />
                 <input type="text" name="Adresse" value="" size="40" />

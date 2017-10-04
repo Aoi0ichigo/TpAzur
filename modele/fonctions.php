@@ -110,11 +110,11 @@ and open the template in the editor.
             return $reservations;
             
             
-            function reserverVol() {
+            /*function reserverVol(){
                 // récup numéro vol
                 $numero = $_REQUEST["numero"];
-                return $numero;
-            }
+                return $numero; 
+            }*/
 
             }
             

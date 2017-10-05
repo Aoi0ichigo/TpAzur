@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="e. ISO-8859-1">
+        <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/cssGeneral.css">
     </head>

@@ -105,5 +105,27 @@
         return $numero; 
     }
 
+    function valideResa(){
+        $numVol=$_POST['numero'];
+        $nom=$_POST['nom'];
+        $prenom=$_POST['prenom'];
+        $mail=$_POST['mail'];
+        $adresse=$_POST['adresse'];
+        $nbPlace=$_POST['nbPlace'];
+         // Appel au fichier permettant la connection � la BD
+     require dirname(__FILE__)."/Connection.php";
+     // Selection de la base de donn�es et requete SQL
+        $requete="insert into reservation values (null,'$nom','$prenom','$adresse','$mail','$nbPlace','$numVol') ";
+        $bdd= connect();   
+        try 
+        {	
+            $sql = $bdd->prepare($requete);
+            $sql->execute();
+        }
+        catch(PDOException $e)
+        {
+            echo "Erreur dans la requ�te" . $e->getMessage();
+        }
+    }
 
  ?>

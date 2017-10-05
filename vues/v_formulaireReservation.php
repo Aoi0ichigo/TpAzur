@@ -5,20 +5,22 @@
     // faire de même les autres paramètres…
 ?>
     <form action="index?action=valideResa" methode="POST">
-        <input type="hidden" name="numVol" value="$numero" />
+        <input type="hidden" name="numVol" value="<?php $numero ?>" />
+        <input type="hidden" name="depart" value="<?php $depart ?>" />
+        <input type="hidden" name="arrivee" value="<?php $arrivee ?>" />
         <fieldset>
             <legend >Réservation pour le vol <?php echo $numero?></legend>
             <p>
                 <label>Nom</label>
-                <input type="text" name="Nom"size="30" />
+                <input type="text" name="nom"size="30" />
             </p>
             <p>
                 <label>Prenom</label>
-                <input type="text" name="Prénom"size="30" />
+                <input type="text" name="prenom"size="30" />
             </p>
             <p>
                 <label>Adresse</label>
-                <input type="text" name="Adresse" size="40" />
+                <input type="text" name="adresse" size="40" />
             </p>
             <p>
                 <label>Mail</label>
@@ -26,7 +28,7 @@
             </p>
             <p>
                 <label>Nombre de passager</label>
-                <input type="text" name="Nombre de voyageurs" />
+                <input type="text" name="nbPlace" />
             </p>
         </fieldset>
         <center>

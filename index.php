@@ -43,7 +43,7 @@ and open the template in the editor.
                 case 'faireResa':
                     include("modele/fonctions.php");
                     $numero = reserverVol();
-                    include ("vues/v_formulaireResarvation.php");
+                    include ("vues/v_formulaireReservation.php");
                     break;
                 case 'valideResa':
                     include("vues/v_valideResa.php");

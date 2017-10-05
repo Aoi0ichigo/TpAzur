@@ -17,13 +17,33 @@ and open the template in the editor.
             // faire de même les autres paramètres…
         ?>
             <form action="index?action=valideResa" methode="POST">
-                <input type="text" name="Nom" value="" size="30" />
-                <input type="text" name="Prénom" value="" size="30" />
-                <input type="text" name="Adresse" value="" size="40" />
-                <input type="text" name="mail" value="" size="40" />
-                <input type="text" name="Nombre de voyageurs" value="" />
-                <input type="hidden" name="numVol" value="$numero" />
-                <input type="submit" value="" name="Valider" /> <input type="reset" value="Annuler" name="Annuler" />
+                <fieldset>
+                    <legende>Reversation pour le vol <?php echo $numero?></legende>
+                    <p>
+                        <label>Nom</label>
+                        <input type="text" name="Nom"size="30" />
+                    </p>
+                    <p>
+                        <label>Prenom</label>
+                        <input type="text" name="Prénom"size="30" />
+                    </p>
+                    <p>
+                        <label>Adresse</label>
+                        <input type="text" name="Adresse" size="40" />
+                    </p>
+                    <p>
+                        <label>Mail</label>
+                        <input type="text" name="mail"  size="40" />
+                    </p>
+                    <p>
+                        <label>Nombre de passager</label>
+                        <input type="text" name="Nombre de voyageurs" />
+                    </p>
+                    <input type="hidden" name="numVol" value="$numero" />
+                </fieldset>
+                <input type="submit" value="Valider" />
+                <input type="reset" value="Annuler" />
+
             </form>   
             
         </div>

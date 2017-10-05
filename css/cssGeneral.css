@@ -1,12 +1,10 @@
 html {
 font:normal 100%/1.2em "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
 }
-
 img {border: 0 none;}
 
 td{border: 1px solid black;}
 
-table{border-collapse: collapse;}
 
 form {
     background-color:#FAFAFA;
@@ -22,6 +20,31 @@ form {
     border-radius:10px;
 
  }
+ input[type=text],input[type=password], input[type=email], textarea, select {
+ padding:3px;
+ border:1px solid #F5C5C5;
+ border-radius:5px;
+ width:200px;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+ input[type=text]:focus ,input[type=password]:focus, input[type=email]:focus, textarea:focus, select:focus
+ {
+  border:solid 1px red;
+}
+
+select {
+ margin-top:10px;
+ }
+input[type=radio], input[type=checkbox] {
+ background-color : none ;
+ border:none;
+ width:10px;
+}
+ p
+ {
+ color:#DF3F3F;
+ font-weight:bold
+ }
 fieldset {
     padding:10px 20px 20px 20px;
     margin-bottom:10px;
@@ -30,7 +53,6 @@ fieldset {
     -moz-border-radius:10px;
     -webkit-border-radius:10px;
     border-radius:10px;
-  
  }
 legend {
     color:#DF3F3F;
@@ -63,7 +85,8 @@ input[type="submit"]
 }
 
 #accueil {
-    padding-left:50px;
+    padding-top: 50px;
+    padding-left:400px;
 }
 
 #bandeau {
@@ -71,7 +94,7 @@ input[type="submit"]
 }
 
 #menu{
-height: 1.8em ;
+    height: 1.8em ;
 }
 
 #contenu{
@@ -83,15 +106,16 @@ height: 1.8em ;
     list-style-image:none;
     float: left ;
     text-align: center;
-    width: 200px ; 
+    width: 400px ; 
     border: 1px solid #600 ; 
     margin-right: 1px ; 
     color: #fff ; 
-    background: #ccff11 ;
+    background: #DF3F3F ;
 }
 
 #menu li a , #categories li a {
     text-decoration:none;
+    color: #000 ; 
 }
 
 #reservations {
@@ -105,7 +129,4 @@ height: 1.8em ;
     border-width: 1px;
     border-style: solid;
     border-color: #666;
-
 }
-
-

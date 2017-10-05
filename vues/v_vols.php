@@ -1,5 +1,5 @@
 <div id="contenu">
-    <table >
+    <table border=4 cellspacing=4 cellpadding=4>
             <tr>
                 <th>
                     Vol

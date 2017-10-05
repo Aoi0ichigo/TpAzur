@@ -5,7 +5,6 @@ img {border: 0 none;}
 
 td{border: 1px solid black;}
 
-table{border-collapse: collapse;}
 
 form {
     background-color:#FAFAFA;
@@ -106,7 +105,7 @@ input[type="submit"]
     list-style-image:none;
     float: left ;
     text-align: center;
-    width: 200px ; 
+    width: 400px ; 
     border: 1px solid #600 ; 
     margin-right: 1px ; 
     color: #fff ; 

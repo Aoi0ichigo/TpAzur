@@ -7,7 +7,7 @@
     <form action="index?action=valideResa" methode="POST">
         <input type="hidden" name="numVol" value="$numero" />
         <fieldset>
-            <legende>Reversation pour le vol <?php echo $numero?></legende>
+            <legend >Réservation pour le vol <?php echo $numero?></legend>
             <p>
                 <label>Nom</label>
                 <input type="text" name="Nom"size="30" />
@@ -29,9 +29,10 @@
                 <input type="text" name="Nombre de voyageurs" />
             </p>
         </fieldset>
-        <input type="submit" value="Valider" />
-        <input type="reset" value="Annuler" />
-
+        <center>
+            <input type="submit" value="Valider" />
+            <input type="reset" value="Annuler" />
+        </center>
     </form>   
 
 </div>

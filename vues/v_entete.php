@@ -5,7 +5,8 @@
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/cssGeneral.css">
     </head>
-    <body>
+    <body >
+
         <div id="bandeau">
         <img src='images/avion.png'/>
         </div>

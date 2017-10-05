@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="e. ISO-8859-1">
         <title></title>
+        <link rel="stylesheet" type="text/css" href="css/cssGeneral.css">
     </head>
     <body>
         <div id="bandeau">
@@ -17,6 +13,6 @@ and open the template in the editor.
             <ul>
                 <li><a href='index.php?action=accueil'>Accueil</a></li>
                 <li><a href='index.php?action=voirVols'>Voir le catalogue des vols</a></li>
-                <li><a href='index.php?action=voirResa'>Voir les réservation </a></li>
+                <li><a href='index.php?action=voirResa'>Voir les rï¿½servation </a></li>
             </ul>
         </div>

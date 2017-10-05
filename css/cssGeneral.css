@@ -22,6 +22,31 @@ form {
     border-radius:10px;
 
  }
+ input[type=text],input[type=password], input[type=email], textarea, select {
+ padding:3px;
+ border:1px solid #F5C5C5;
+ border-radius:5px;
+ width:200px;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+ input[type=text]:focus ,input[type=password]:focus, input[type=email]:focus, textarea:focus, select:focus
+ {
+  border:solid 1px red;
+}
+
+select {
+ margin-top:10px;
+ }
+input[type=radio], input[type=checkbox] {
+ background-color : none ;
+ border:none;
+ width:10px;
+}
+ p
+ {
+ color:#DF3F3F;
+ font-weight:bold
+ }
 fieldset {
     padding:10px 20px 20px 20px;
     margin-bottom:10px;
@@ -30,7 +55,6 @@ fieldset {
     -moz-border-radius:10px;
     -webkit-border-radius:10px;
     border-radius:10px;
-  
  }
 legend {
     color:#DF3F3F;
@@ -107,5 +131,3 @@ height: 1.8em ;
     border-color: #666;
 
 }
-
-

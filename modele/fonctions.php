@@ -61,14 +61,13 @@
       // Appel au fichier permettant la connection � la BD
      require dirname(__FILE__)."/Connection.php";
      // Selection de la base de donn�es et requete SQL
-        $requete="select * from reservation ";/*where numAgence=:numAgence*/
+        $requete="select * from reservation ";
     // Remplissage d'un tableau correspondant � chaque reservation
         $bdd= connect();
         $i=0;
         try 
         {	
             $sql = $bdd->prepare($requete);
-            //$sql->bindParam( ':numAgence',$SESSION['agence'],PDO::PARAM_STR);
             $sql->execute();
 
             while($ligne=$sql->fetch(PDO::FETCH_OBJ))
@@ -107,8 +106,4 @@
     }
 
 
-
-    function formulaireReservation(){
-        ;
-    }
  ?>

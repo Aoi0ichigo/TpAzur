@@ -5,6 +5,7 @@
     // faire de même les autres paramètres…
 ?>
     <form action="index?action=valideResa" methode="POST">
+        <input type="hidden" name="numVol" value="$numero" />
         <fieldset>
             <legende>Reversation pour le vol <?php echo $numero?></legende>
             <p>
@@ -27,7 +28,6 @@
                 <label>Nombre de passager</label>
                 <input type="text" name="Nombre de voyageurs" />
             </p>
-            <input type="hidden" name="numVol" value="$numero" />
         </fieldset>
         <input type="submit" value="Valider" />
         <input type="reset" value="Annuler" />

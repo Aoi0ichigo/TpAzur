@@ -1,5 +1,5 @@
 <?php
-$nomclient = $REQUEST["nomClient"];
+    $nomclient = $REQUEST["nomClient"];
     $prenomclient = $REQUEST["prenomClient"];
     $numeroVol = $REQUEST["numeroVolt"];
     $dateDepart= $REQUEST["dateDepart"];
@@ -11,54 +11,60 @@ $nomclient = $REQUEST["nomClient"];
     $arrivee=$REQUEST["arrivee"];
 
 ?>
-<input type="submit" value="Valider" />
 <form action="index?action=voirResa" methode="POST">
-  
-<?php
- echo"     <tr>
-              <th>
-                Numéro du Vol :
-                </th>
-                
+
+    <?php
+        echo" <table>
+            <tr>
+                 <th>
+                   Numéro du Vol :
+                 </th>
                 <td>
-                $numeroVol
+                   $numeroVol
                 </td>
-                <th>
-                Nom :
-              </th>
             </tr>
-                
-              <tr>
+
+            <tr>
+                 <th>
+                    Client:
+                 </th>
                 <td>
-                $nomClient
+                   $nomClient
                 </td>
+                <td>
+                   $prenomClient
+                </td>
+            </tr>
+            <tr>
                 <th>
-                Prénom :
+                   Départ:
                 </th>
+
                 <td>
-                $prenomClient
+                    $depart
                 </td>
-                </th>
-                </tr>
-                
+                <td>
+                    $dateDepart
+                </td>
+                <td>
+                    $heureDepart
+                </td>
+            </tr>
+            <tr>
                 <th>
-                Date et heure de départ :
+                    Arriver :
                 </th>
                 <td>
-                $dateDepart
-                $heureDepart
+                    $arrivee
                 </td>
-                </th>
-                </tr>
-                
-                <th>
-                Date et heure d'arriver :
-                </th>
                 <td>
-                $dateArrivee
-                $heureArrivee 
+                    $dateArrivee
                 </td>
-                </tr>
-  "
-?> 
+                <td>
+                    $heureArrivee 
+                </td>
+            </tr>
+        </table>"
+    ?> 
+    <input type="submit" value="Valider" />
 </form>

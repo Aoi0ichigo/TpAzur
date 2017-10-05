@@ -21,7 +21,9 @@ and open the template in the editor.
               // Appel au fichier permettant la connection � la BD
              require dirname(__FILE__)."/Connection.php";
              // Selection de la base de donn�es et requete SQL
-                $requete="select numero,nomAero as 'a1',dateDepart,heureDepart,nomAeroport as 'a2' ,dateArrivee,heureArrivee,prix from aeroport  join vol join aeroport2 on numAeroport=arrivee and numAero=depart where nomAero=(select nomAero from aeroport where numAero=depart) and nomAeroport=(select nomAeroport from aeroport2 where numAeroport=arrivee)";
+             $requete="select numero,A1.nomAero as depart,dateDepart,heureDepart,A2.nomAero as arrive,dateArrivee,heureArrivee,prix from vol "
+                     . "join aeroport as A1 on A1.numAero=depart "
+                     . "join aeroport as A2 on A2.numAero=arrivee";
             // Remplissage d'un tableau correspondant � chaque vol
                 $bdd= connect();
                 $i=0;
@@ -34,10 +36,10 @@ and open the template in the editor.
                     { 
                         
                         $unVol[$i]= ["numero"=>$ligne->numero,
-                            "depart"=>$ligne->a1,
+                            "depart"=>$ligne->depart,
                             "dateDepart"=>$ligne->dateDepart,
                             "heureDepart"=>$ligne->heureDepart,
-                            "arrivee"=>$ligne->a2,
+                            "arrivee"=>$ligne->arrive,
                             "dateArrivee"=>$ligne->dateArrivee,
                             "heureArrivee"=>$ligne->heureArrivee,
                             "prix"=>$ligne->prix];
@@ -109,14 +111,14 @@ and open the template in the editor.
 
             return $reservations;
             
-            
-            /*function reserverVol(){
+             }
+            function reserverVol(){
                 // récup numéro vol
                 $numero = $_REQUEST["numero"];
                 return $numero; 
-            }*/
-
             }
+
+           
             
             function formulaireReservation(){
                 ;

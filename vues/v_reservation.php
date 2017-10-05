@@ -10,6 +10,14 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <table border>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Num Vol</th>
+                        <th>Nombre de places</th>
+                        <th>PDF</th>
+                    </tr>
         <?php
             foreach($reservations as $uneResa)
             {
@@ -17,13 +25,7 @@ and open the template in the editor.
                 $prenomClient=$uneResa['prenomClient'];
                 $numeroVol=$uneResa['numero'];
                 $qdPlace=$uneResa['qdPlace'];
-                echo"<table border>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Num Vol</th>
-                        <th>Nombre de places</th>
-                    </tr>
+                echo"
                     <tr>
                         <td>$nomClient</td>
                         <td>$prenomClient</td>

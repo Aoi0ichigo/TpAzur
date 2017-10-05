@@ -14,7 +14,6 @@ and open the template in the editor.
         <?php
             // récupération du numéro
             $numero = $_REQUEST["numero"];
-            $reservation["numero"] =  $numero;
             // faire de même les autres paramètres…
         ?>
             <form action="index?action=valideResa" methode="POST">
@@ -23,7 +22,8 @@ and open the template in the editor.
                 <input type="text" name="Adresse" value="" size="40" />
                 <input type="text" name="mail" value="" size="40" />
                 <input type="text" name="Nombre de voyageurs" value="" />
-                <input type="submit" value="Valider" name="Valider" /> <input type="reset" value="Annuler" name="Annuler" />
+                <input type="hidden" name="numVol" value="$numero" />
+                <input type="submit" value="" name="Valider" /> <input type="reset" value="Annuler" name="Annuler" />
             </form>   
             
         </div>

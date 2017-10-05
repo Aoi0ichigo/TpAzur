@@ -37,13 +37,15 @@ and open the template in the editor.
                         <th>
                             prix
                         </th>
+                        <th>
+                            
+                        </th>
                     </tr>
             <?php
             $_GET["numero"]="AIR";
             foreach($lesVols as $unVol)
             {
                     $numero = $unVol['numero'] ;
-                    $_GET['numero']=$numero;
                     $depart=$unVol['depart'] ;
                     $dateDepart=$unVol['dateDepart'] ;
                     $heureDepart=$unVol['heureDepart'] ;
@@ -54,7 +56,7 @@ and open the template in the editor.
             echo"
                     <tr>
                         <td>
-                            $_GET[numero]
+                            $numero
                         </td>
                         <td>
                             $depart
@@ -78,7 +80,7 @@ and open the template in the editor.
                             $prix
                         </td>
                         <td>
-                            <a href='index.php?action=faireResa&$numero'>reservation</a>
+                            <a href='index.php?action=faireResa&numero=$numero'>reservation</a>
                         </td>
                     </tr>
                 ";

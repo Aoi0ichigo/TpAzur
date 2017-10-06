@@ -4,12 +4,9 @@
     $numero = $_REQUEST["numero"];
     // faire de même les autres paramètres…
 ?>
-    <form action="index?action=valideResa" methode="POST">
-        <input type="hidden" name="numVol" value="<?php $numero ?>" />
-        <input type="hidden" name="depart" value="<?php $depart ?>" />
-        <input type="hidden" name="arrivee" value="<?php $arrivee ?>" />
-        <fieldset>
-            <legend >Réservation pour le vol <?php echo $numero?></legend>
+    <form action="index.php?action=valideResa" methode="POST">
+       <fieldset>
+            <legend>Réservation pour le vol <?php echo $numero?></legend>
             <p>
                 <label>Nom</label>
                 <input type="text" name="nom"size="30" />
@@ -30,6 +27,9 @@
                 <label>Nombre de passager</label>
                 <input type="text" name="nbPlace" />
             </p>
+            <input type="hidden" name="numVol" value="<?php $numero ?>" />
+            <input type="hidden" name="depart" value="<?php $depart ?>" />
+            <input type="hidden" name="arrivee" value="<?php $arrivee ?>" />
         </fieldset>
         <center>
             <input type="submit" value="Valider" />

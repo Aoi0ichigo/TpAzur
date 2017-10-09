@@ -26,6 +26,9 @@
                     prix
                 </th>
                 <th>
+                    Place restante
+                </th>
+                <th>
 
                 </th>
             </tr>
@@ -40,7 +43,16 @@
             $arrivee=$unVol['arrivee'] ;
             $dateArrivee=$unVol['dateArrivee'] ;
             $heureArrivee=$unVol['heureArrivee'] ;
+            $nbPlace=$unVol['nbPlace'];
             $prix=$unVol['prix'] ;
+            $_SESSION["numero"]=$numero;
+            $_SESSION["prix"]=$prix ;
+            $_SESSION["depart"]=$depart;
+            $_SESSION["arrivee"]=$arrivee;
+            $_SESSION["dateArrivee"]=$dateArrivee;
+            $_SESSION["heureArrivee"]=$heureArrivee;
+            $_SESSION["heureDepart"]=$heureDepart;
+            $_SESSION["dateDepart"]=$dateDepart;
     echo"
             <tr>
                 <td>
@@ -68,7 +80,10 @@
                     $prix
                 </td>
                 <td>
-                    <a href='index.php?action=faireResa&numero=$numero&prix=$prix&depart=$depart&arrivee=$arrivee&dateArrivee=$dateArrivee&heureArrivee=$heureArrivee&heureDepart=$heureDepart&dateDepart=$dateDepart'>reservation</a>
+                    $nbPlace
+                </td>
+                <td>
+                    <a href='index.php?action=faireResa&numero=$numero'>reservation</a>
                 </td>
             </tr>
         ";

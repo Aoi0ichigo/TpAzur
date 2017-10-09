@@ -1,19 +1,21 @@
 <?php
-    $nomClient = $_REQUEST["nom"];
+    $nomClient = $_REQUEST["nomClient"];
     $prenomClient = $_REQUEST["prenom"];
-    $numeroVol = $_REQUEST["numero"];
-    $dateDepart= $_REQUEST["dateDepart"];
-    $heureDepart= $_REQUEST["heureDepart"];
-    $dateArrivee = $_REQUEST["dateArrivee"];
-    $heureArrivee=$_REQUEST["heureArrivee"];
-    $nbPlace=$_REQUEST["nbPlace"];
-    $prix=$_REQUEST["prix"];
-    $depart=$_REQUEST["depart"];
-    $arrivee=$_REQUEST["arrivee"];
+    $nbPlace = $_REQUEST["nbPlace"];
+    $adresse = $_REQUEST["adresse"];
+    $mail = $_REQUEST["mail"];
+    $numero = $_SESSION["numero"];
+    $dateDepart= $_SESSION["dateDepart"];
+    $heureDepart= $_SESSION["heureDepart"];
+    $dateArrivee = $_SESSION["dateArrivee"];
+    $heureArrivee=$_SESSION["heureArrivee"];
+    $prix=$_SESSION["prix"];
+    $depart=$_SESSION["depart"];
+    $arrivee=$_SESSION["arrivee"];
     $res=$prix*$nbPlace;
 ?>
 <form methode=POST action="index.php?action=" >
-    <input type="hidden" name="action" value="voirResa" />
+    <input type="hidden" name="action" value="valide" />
     <fieldset> 
         <legend>Information de la réservation</legend>
     <?php
@@ -23,7 +25,7 @@
                    Numéro du Vol :
                  </th>
                 <td>
-                   $numeroVol
+                   $numero
                 </td>
             </tr>
 

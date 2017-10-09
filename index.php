@@ -42,12 +42,16 @@ and open the template in the editor.
                         include("vues/v_vols.php");
                         break;
                     case 'faireResa':
-                        /*include("modele/fonctions.php");
-                        $numero = reserverVol();*/
+                        include("modele/fonctions.php");
+                        $numero = reserverVol();
                         include ("vues/v_formulaireReservation.php");
                         break;
                     case 'valideResa':
                         include("vues/v_valideResa.php");
+                        break;
+                    case 'valide':
+                        include 'modele/fonctions.php';
+                        include 'vues/v_valide.php';
                         break;
                 }
 

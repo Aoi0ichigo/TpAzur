@@ -1,29 +1,18 @@
 <div id='contenu'>
 <?php
-    // récupération du numéro
-    $numero = $_REQUEST["numero"];
-    $dateDepart= $_REQUEST["dateDepart"];
-    $heureDepart= $_REQUEST["heureDepart"];
-    $dateArrivee = $_REQUEST["dateArrivee"];
-    $heureArrivee=$_REQUEST["heureArrivee"];
-    $prix=$_REQUEST["prix"];
+    // récupération du numéro 
     // faire de même les autres paramètres…
+    $numero = $_REQUEST["numero"];
+    $_SESSION["numero"]=$numero;
+   
 ?>
     <form methode=POST action="index.php?"  >
         <input type="hidden" name="action" value="valideResa" />
-        <input type="hidden" name="numero" value="<?php $numero ?>" />
-        <input type="hidden" name="depart" value="<?php $depart ?>" />
-        <input type="hidden" name="arrivee" value="<?php $arrivee ?>" />
-        <input type="hidden" name="dateDepart" value="<?php $dateDepart ?>" />
-        <input type="hidden" name="dateArrivee" value="<?php $dateArrivee ?>" />
-        <input type="hidden" name="heureDepart" value="<?php $heureDepart ?>" />
-        <input type="hidden" name="heureArrivee " value="<?php $heureArrivee ?>" />
-        <input type="hidden" name="prix" value="<?php $prix ?>" />
        <fieldset>
             <legend>Réservation pour le vol <?php echo $numero?></legend>
             <p>
                 <label>Nom</label>
-                <input type="text" name="nom"size="30" />
+                <input type="text" name="nomClient"size="30" />
             </p>
             <p>
                 <label>Prenom</label>

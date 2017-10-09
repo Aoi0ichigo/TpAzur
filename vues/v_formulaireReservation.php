@@ -2,9 +2,23 @@
 <?php
     // récupération du numéro
     $numero = $_REQUEST["numero"];
+    $dateDepart= $_REQUEST["dateDepart"];
+    $heureDepart= $_REQUEST["heureDepart"];
+    $dateArrivee = $_REQUEST["dateArrivee"];
+    $heureArrivee=$_REQUEST["heureArrivee"];
+    $prix=$_REQUEST["prix"];
     // faire de même les autres paramètres…
 ?>
-    <form action="index.php?action=valideResa" methode="POST">
+    <form methode=POST action="index.php?"  >
+        <input type="hidden" name="action" value="valideResa" />
+        <input type="hidden" name="numero" value="<?php $numero ?>" />
+        <input type="hidden" name="depart" value="<?php $depart ?>" />
+        <input type="hidden" name="arrivee" value="<?php $arrivee ?>" />
+        <input type="hidden" name="dateDepart" value="<?php $dateDepart ?>" />
+        <input type="hidden" name="dateArrivee" value="<?php $dateArrivee ?>" />
+        <input type="hidden" name="heureDepart" value="<?php $heureDepart ?>" />
+        <input type="hidden" name="heureArrivee " value="<?php $heureArrivee ?>" />
+        <input type="hidden" name="prix" value="<?php $prix ?>" />
        <fieldset>
             <legend>Réservation pour le vol <?php echo $numero?></legend>
             <p>
@@ -27,9 +41,7 @@
                 <label>Nombre de passager</label>
                 <input type="text" name="nbPlace" />
             </p>
-            <input type="hidden" name="numVol" value="<?php $numero ?>" />
-            <input type="hidden" name="depart" value="<?php $depart ?>" />
-            <input type="hidden" name="arrivee" value="<?php $arrivee ?>" />
+            
         </fieldset>
         <center>
             <input type="submit" value="Valider" />

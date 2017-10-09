@@ -1,19 +1,21 @@
 <?php
-    $nomclient = $REQUEST["nom"];
-    $prenomclient = $REQUEST["prenom"];
-    $numeroVol = $REQUEST["numVol"];
-    $dateDepart= $REQUEST["dateDepart"];
-    $heureDepart= $REQUEST["heureDepart"];
-    $dateArrivee = $REQUEST["dateArrivee"];
-    $heureArrivee=$REQUEST["heureArrivee"];
-    $nbPlace=$REQUEST["nbPlace"];
-    $prix=$REQUEST["prix"];
-    $depart=$REQUEST["depart"];
-    $arrivee=$REQUEST["arrivee"];
-
+    $nomClient = $_REQUEST["nom"];
+    $prenomClient = $_REQUEST["prenom"];
+    $numeroVol = $_REQUEST["numero"];
+    $dateDepart= $_REQUEST["dateDepart"];
+    $heureDepart= $_REQUEST["heureDepart"];
+    $dateArrivee = $_REQUEST["dateArrivee"];
+    $heureArrivee=$_REQUEST["heureArrivee"];
+    $nbPlace=$_REQUEST["nbPlace"];
+    $prix=$_REQUEST["prix"];
+    $depart=$_REQUEST["depart"];
+    $arrivee=$_REQUEST["arrivee"];
+    $res=$prix*$nbPlace;
 ?>
-<form action="index?action=voirResa" methode="POST">
-
+<form methode=POST action="index.php?action=" >
+    <input type="hidden" name="action" value="voirResa" />
+    <fieldset> 
+        <legend>Information de la réservation</legend>
     <?php
         echo" <table>
             <tr>
@@ -66,26 +68,27 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <th>
                     Nombre de places reservé:
-                </td>
+                </th>
                 <td>
-                    $nbPlace;
+                    $nbPlace
                 </td>
                 <th>
                    Prix:
                 </th>
                 <td>
-                    $prix;
+                    $prix
                 </td>
                 <th>
                    Montant:
                 </th>
                 <td>
-                    $prix*$nbPlace;
+                    $res
                 </td>
             </tr>
         </table>"
     ?> 
+    </fieldset>
     <input type="submit" value="Valider" />
 </form>

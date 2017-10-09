@@ -117,12 +117,6 @@ and open the template in the editor.
                 $numero = $_REQUEST["numero"];
                 return $numero; 
             }
-
-           
-            
-            function formulaireReservation(){
-                ;
-            }
          ?>
         
     </body>

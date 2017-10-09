@@ -68,7 +68,7 @@
                     $prix
                 </td>
                 <td>
-                    <a href='index.php?action=faireResa&numero=$numero'>reservation</a>
+                    <a href='index.php?action=faireResa&numero=$numero&prix=$prix&depart=$depart&arrivee=$arrivee&dateArrivee=$dateArrivee&heureArrivee=$heureArrivee&heureDepart=$heureDepart&dateDepart=$dateDepart'>reservation</a>
                 </td>
             </tr>
         ";

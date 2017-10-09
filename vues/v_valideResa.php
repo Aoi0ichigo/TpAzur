@@ -1,9 +1,9 @@
 <?php
-    $nomClient = $_REQUEST["nomClient"];
-    $prenomClient = $_REQUEST["prenom"];
-    $nbPlace = $_REQUEST["nbPlace"];
-    $adresse = $_REQUEST["adresse"];
-    $mail = $_REQUEST["mail"];
+    $_SESSION["nom"]=$nomClient = $_REQUEST["nomClient"];
+    $_SESSION["prenom"]=$prenom = $_REQUEST["prenom"];
+    $_SESSION["nbPlace"]=$nbPlace = $_REQUEST["nbPlace"];
+    $_SESSION["adresse"]=$adresse = $_REQUEST["adresse"];
+    $_SESSION["mail"]=$mail = $_REQUEST["mail"];
     $numero = $_SESSION["numero"];
     $dateDepart= $_SESSION["dateDepart"];
     $heureDepart= $_SESSION["heureDepart"];
@@ -37,7 +37,7 @@
                    $nomClient
                 </td>
                 <td>
-                   $prenomClient
+                   $prenom
                 </td>
             </tr>
             <tr>
@@ -92,5 +92,8 @@
         </table>"
     ?> 
     </fieldset>
-    <input type="submit" value="Valider" />
+    <input type="submit" value="Valider" />  
 </form>
+<center>
+<a href='index.php?action=voirVols'><input type="reset" value="Annuler" /></a>
+</center>

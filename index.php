@@ -51,6 +51,7 @@ and open the template in the editor.
                         break;
                     case 'valide':
                         include 'modele/fonctions.php';
+                        valideResa();
                         include 'vues/v_valide.php';
                         break;
                 }

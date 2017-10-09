@@ -8,6 +8,7 @@
 ?>
     <form methode=POST action="index.php?"  >
         <input type="hidden" name="action" value="valideResa" />
+        
        <fieldset>
             <legend>Réservation pour le vol <?php echo $numero?></legend>
             <p>

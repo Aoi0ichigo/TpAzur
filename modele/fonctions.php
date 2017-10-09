@@ -109,15 +109,15 @@
     }
 
     function valideResa(){
-        $nomClient = $_REQUEST["nomClient"];
-        $prenomClient = $_REQUEST["prenom"];
-        $nbPlace = $_REQUEST["nbPlace"];
-        $numero = $_REQUEST["numero"];
-        $adresse=$_REQUEST["adresse"];
-        $mail=$_REQUEST["mail"];
+        $nomClient =$_SESSION["nom"]; 
+        $prenomClient = $_SESSION["prenom"];
+        $nbPlace = $_SESSION["nbPlace"];
+        $numero = $_SESSION["numero"];
+        $adresse=$_SESSION["adresse"];
+        $mail=$_SESSION["mail"];
         require dirname(__FILE__)."/Connection.php";
      // Selection de la base de donn�es et requete SQL
-        $requete="INSERT INTO  reservation ('numVol','nomClient','prenomClient','nbPlace','adresse','email') values ("."$numero".",". "$nomClient".","."$prenomClient".","."$nbPlace".","."$adresse".","."$mail".") ";/*where numAgence=:numAgence*/
+        $requete="INSERT INTO  reservation ('numVol','nomClient','prenomClient','nbPlace','adresse','email') values ('$numero','$nomClient','$prenomClient',$nbPlace,'$adresse','$mail') ";
     // Remplissage d'un tableau correspondant � chaque reservation
         $bdd= connect();
         try 
@@ -130,12 +130,40 @@
         {
             echo "Erreur dans la requ�te" . $e->getMessage();
         }
-        
-         $requete="update vol set nbPlace-=$nbPlace where numVol="."$numero"." ";
+    }
+    function nbPlaceV(){
+        $requete="update vol set nbPlace-=$nbPlace where numVol='$numero' ";
         $bdd= connect();
         try 
         {	
             $sql = $bdd->prepare($requete);
+            $sql->execute();
+
+        }
+        catch(PDOException $e)
+        {
+            echo "Erreur dans la requ�te" . $e->getMessage();
+        }
+    }
+    function annulation(){
+        $nbPlace=$_SESSION['nbPlace'];
+        $num=$_SESSION['num'];
+        $requete="delete from reservation where numResa=num ";
+        $req="update vol set nbPlace+=$nbPlace where numVol='$numero' ";
+        $bdd= connect();
+        try 
+        {	
+            $sql = $bdd->prepare($requete);
+            $sql->execute();
+
+        }
+        catch(PDOException $e)
+        {
+            echo "Erreur dans la requ�te" . $e->getMessage();
+        }
+        try 
+        {	
+            $sql = $bdd->prepare($req);
             $sql->execute();
 
         }

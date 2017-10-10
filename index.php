@@ -54,7 +54,13 @@ and open the template in the editor.
                         valideResa();
                         include 'vues/v_valide.php';
                         break;
+                    case 'pdf':
+                        include 'modele/fonctions.php';
+                        include 'vues/v_pdf.php';
+                        break;
                     case 'supprime':
+                        include 'modele/fonctions.php';
+                        annulation();
                         break;
                 }
 

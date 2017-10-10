@@ -14,6 +14,6 @@
             <ul>
                 <li><a href='index.php?action=accueil'>Accueil</a></li>
                 <li><a href='index.php?action=voirVols'>Voir le catalogue des vols</a></li>
-                <li><a href='index.php?action=voirResa'>Voir les r�servation </a></li>
+                <li><a href='index.php?action=voirResa'>Voir les réservation </a></li>
             </ul>
         </div>

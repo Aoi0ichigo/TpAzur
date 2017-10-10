@@ -8,6 +8,7 @@
                     <th>Action </th>
                 </tr>
     <?php
+        $i=0;
         foreach($reservations as $uneResa)
         {
             $nomClient=$uneResa['nomClient'];
@@ -20,9 +21,10 @@
                     <td>$prenomClient</td>
                     <td>$numeroVol</td>
                     <td>$qdPlace</td>
-                    <td><a href='fpdf/pdf.php'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime'><img src='images/supprime_icon.gif'> </a></td>
+                    <td><a href='index.php?action=pdf&numResa=$i'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime'><img src='images/supprime_icon.gif'> </a></td>
                 </tr>
             ";
+            $i++;
         }
     ?>
     </table>

@@ -107,23 +107,39 @@
         $numero = $_REQUEST["numero"];
         return $numero; 
     }
+    // fonction qui initialise le panier
+    // le panier est un tableau indexé mis en session avec la clé "reservations"
+    function initPanier() {
+        if(!isset($_SESSION['reservations']))
+            $_SESSION['reservations']= array();
+    }
+
+    // fonction qui ajoute une réservation au panier
+    function ajouterAuPanier($reservation) {    
+        $_SESSION['reservations'][]= $reservation;
+    }
+
 
     function valideResa(){
-        $nomClient =$_SESSION["nom"]; 
-        $prenomClient = $_SESSION["prenom"];
-        $nbPlace = $_SESSION["nbPlace"];
-        $numero = $_SESSION["numero"];
-        $adresse=$_SESSION["adresse"];
-        $mail=$_SESSION["mail"];
+        $reservation = array();
+        
+        $reservation["nomClient"] =$_SESSION["nom"]; 
+        $reservation["prenomClient"] = $_SESSION["prenom"];
+        $reservation["nbPlace"] = $_SESSION["nbPlace"];
+        $reservation["numero"] = $_SESSION["numero"];
+        $reservation["adresse"]=$_SESSION["adresse"];
+        $reservation["mail"]=$_SESSION["mail"];
+        initPanier();
         require dirname(__FILE__)."/Connection.php";
      // Selection de la base de donn�es et requete SQL
-        $requete="INSERT INTO  reservation ('numVol','nomClient','prenomClient','nbPlace','adresse','email') values ('$numero','$nomClient','$prenomClient',$nbPlace,'$adresse','$mail') ";
+        $requete="INSERT INTO  reservation values('','$reservation[numero]','".htmlspecialchars($reservation['nomClient'])."','".htmlspecialchars($reservation['prenomClient'])."',$reservation[nbPlace],'".htmlspecialchars($reservation['mail'])."','".htmlspecialchars($reservation['adresse'])."')";  
     // Remplissage d'un tableau correspondant � chaque reservation
         $bdd= connect();
         try 
         {	
             $sql = $bdd->prepare($requete);
             $sql->execute();
+            nbPlaceV();
 
         }
         catch(PDOException $e)
@@ -132,7 +148,9 @@
         }
     }
     function nbPlaceV(){
-        $requete="update vol set nbPlace-=$nbPlace where numVol='$numero' ";
+        $nbPlace= $_SESSION["nbPlace"];
+        $numero = $_SESSION["numero"];
+        $requete="update vol set nbPlace=nbPlace-$nbPlace where numero='$numero' ";
         $bdd= connect();
         try 
         {	
@@ -149,7 +167,7 @@
         $nbPlace=$_SESSION['nbPlace'];
         $num=$_SESSION['num'];
         $requete="delete from reservation where numResa=num ";
-        $req="update vol set nbPlace+=$nbPlace where numVol='$numero' ";
+        $req="update vol set nbPlace=nbPlace+$nbPlace where numVol='$numero' ";
         $bdd= connect();
         try 
         {	

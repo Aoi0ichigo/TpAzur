@@ -54,6 +54,8 @@ and open the template in the editor.
                         valideResa();
                         include 'vues/v_valide.php';
                         break;
+                    case 'supprime':
+                        break;
                 }
 
                 // vue qui cr�e le pied de page

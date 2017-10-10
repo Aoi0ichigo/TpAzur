@@ -5,7 +5,7 @@
                     <th>Prenom</th>
                     <th>Num Vol</th>
                     <th>Nombre de places</th>
-                    <th>PDF</th>
+                    <th>Action </th>
                 </tr>
     <?php
         foreach($reservations as $uneResa)
@@ -20,7 +20,7 @@
                     <td>$prenomClient</td>
                     <td>$numeroVol</td>
                     <td>$qdPlace</td>
-                    <td><a href='fpdf/pdf.php'>pdf</a></td>
+                    <td><a href='fpdf/pdf.php'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime'><img src='images/supprime_icon.gif'> </a></td>
                 </tr>
             ";
         }

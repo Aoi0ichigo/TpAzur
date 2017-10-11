@@ -56,10 +56,12 @@ and open the template in the editor.
                         break;
                     case 'pdf':
                         include 'modele/fonctions.php';
-                        include 'vues/v_pdf.php';
+                        $numResa= numResa();
+                        include 'fpdf/pdf.php';
                         break;
                     case 'supprime':
                         include 'modele/fonctions.php';
+                        $numResa= numResa();
                         annulation();
                         break;
                 }

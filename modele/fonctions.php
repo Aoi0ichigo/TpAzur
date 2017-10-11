@@ -148,6 +148,7 @@
         }
     }
     function nbPlaceV(){
+         require dirname(__FILE__)."/Connection.php";
         $nbPlace= $_SESSION["nbPlace"];
         $numero = $_SESSION["numero"];
         $requete="update vol set nbPlace=nbPlace-$nbPlace where numero='$numero' ";
@@ -164,6 +165,7 @@
         }
     }
     function annulation(){
+         require dirname(__FILE__)."/Connection.php";
         $nbPlace=$_SESSION['nbPlace'];
         $num=$_SESSION['num'];
         $requete="delete from reservation where numResa=num ";
@@ -192,10 +194,12 @@
     }
     
     function numResa(){
+         require dirname(__FILE__)."/Connection.php";
         $numero=array();
-        $numResa=$_REQUEST["numRsa"];
+        $numResa=$_REQUEST["numResa"];
         $req="select numResa from reservation";
         $i=0;
+        $bdd=connect();
         try 
         {	
             $sql = $bdd->prepare($req);
@@ -217,4 +221,4 @@
         }
         return $numero["$numResa"];
     }
- ?>
+?>

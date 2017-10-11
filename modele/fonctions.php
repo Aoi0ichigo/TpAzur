@@ -190,4 +190,20 @@
             echo "Erreur dans la requ�te" . $e->getMessage();
         }
     }
+    
+    function numResa(){
+        $numResa=$_REQUEST["numRsa"];
+        $req="select numResa from reservation where numResa=$numResa-1";
+        try 
+        {	
+            $sql = $bdd->prepare($req);
+            $sql->execute();
+
+        }
+        catch(PDOException $e)
+        {
+            echo "Erreur dans la requ�te" . $e->getMessage();
+        }
+        return numResa;
+    }
  ?>

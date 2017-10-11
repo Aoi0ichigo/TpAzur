@@ -192,18 +192,29 @@
     }
     
     function numResa(){
+        $numero=array();
         $numResa=$_REQUEST["numRsa"];
-        $req="select numResa from reservation where numResa=$numResa-1";
+        $req="select numResa from reservation";
+        $i=0;
         try 
         {	
             $sql = $bdd->prepare($req);
             $sql->execute();
-
+            while($ligne=$sql->fetch(PDO::FETCH_OBJ))
+            { 
+                $numResa[$i]= [
+                    "nomClient"=>$ligne->nomClient,
+                ];
+                $i++;
+            }
         }
         catch(PDOException $e)
         {
             echo "Erreur dans la requ�te" . $e->getMessage();
         }
-        return numResa;
+        for($r=0;$r<$i;$r++){
+            array_push($numero,$numResa[$r]);
+        }
+        return $numero["$numResa"];
     }
  ?>

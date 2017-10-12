@@ -80,7 +80,8 @@
                     "nomClient"=>$ligne->nomClient,
                     "prenomClient"=>$ligne->prenomClient,
                     "numero"=>$ligne->numVol,
-                    "qdPlace"=>$ligne->nbPlace
+                    "qdPlace"=>$ligne->nbPlace,
+                    "numResa"=>$ligne->numResa
                 ];
                 $i++;
             } 
@@ -132,7 +133,7 @@
         initPanier();
         require dirname(__FILE__)."/Connection.php";
      // Selection de la base de donn�es et requete SQL
-        $requete="INSERT INTO  reservation values('','$reservation[numero]','".htmlspecialchars($reservation['nomClient'])."','".htmlspecialchars($reservation['prenomClient'])."',$reservation[nbPlace],'".htmlspecialchars($reservation['mail'])."','".htmlspecialchars($reservation['adresse'])."')";  
+        $requete="INSERT INTO  reservation values('','$reservation[numero]','".htmlspecialchars($reservation['nomClient'])."','".htmlspecialchars($reservation['prenomClient'])."',$reservation[nbPlace],'".htmlspecialchars($reservation['adresse'])."','".htmlspecialchars($reservation['mail'])."')";  
     // Remplissage d'un tableau correspondant � chaque reservation
         $bdd= connect();
         try 
@@ -182,15 +183,15 @@
         return $ligne;
     }
     function annulation(){
-        //require dirname(__FILE__)."/Connection.php";
+        require dirname(__FILE__)."/Connection.php";
+        $bdd=connect();
         $num=$_SESSION['numResa'];
         $nbPlace=$_SESSION["nbPlace"];
         $requete="delete from reservation where numResa=$num ";
-        $req="update vol set nbPlace=nbPlace+$nbPlace where numVol='$numero' ";
-        $bdd->connect();
+        $req="update vol set nbPlace=nbPlace+$nbPlace where numero='$num' ";
         try 
         {	
-            $sql = $bdd->prepare($req);
+            $sql = $bdd->prepare($req,$requete);
             $sql->execute();
 
         }
@@ -198,45 +199,5 @@
         {
             echo "Erreur dans la requ�te" . $e->getMessage();
         }
-        try 
-        {	
-            $sql = $bdd->prepare($requete);
-            $sql->execute();
-
-        }
-        catch(PDOException $e)
-        {
-            echo "Erreur dans la requ�te" . $e->getMessage();
-        }
-    }
-    
-    function numResa(){
-        require dirname(__FILE__)."/Connection.php";
-        $numero=array();
-        $num=$_REQUEST["numResa"];
-        $req="select numResa ,nbPlace from reservation";
-        $i=0;
-        $bdd=connect();
-        try 
-        {	
-            $sql = $bdd->prepare($req);
-            $sql->execute();
-            while($ligne=$sql->fetch(PDO::FETCH_OBJ))
-            { 
-                $_SESSION['nbPlace']=$ligne->nbPlace;
-                $numResa[$i]= [
-                    "numResa"=>$ligne->numResa,
-                ];
-                $i++;
-            }
-        }
-        catch(PDOException $e)
-        {
-            echo "Erreur dans la requ�te" . $e->getMessage();
-        }
-        for($r=0;$r<$i;$r++){
-            array_push($numero,$numResa[$r]);
-        }
-        return $numero["$num"];
     }
 ?>

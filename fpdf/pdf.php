@@ -1,4 +1,5 @@
 <?php
+session_start();
  define('HOST','localhost');
 	 define('DBNAME','airazur');
 	 define('USER','root');
@@ -17,11 +18,12 @@ function connect()
                 return false;
         }
     }
+    $numResa=$_SESSION["numResa"];
 // Selection de la base de donn�es et requete SQL
 $requete="select numero,A1.nomAero as depart,dateDepart,heureDepart,A2.nomAero as arrive,dateArrivee,heureArrivee,prix,reservation.nbPlace,nomClient,prenomClient from reservation join vol "
         . "join aeroport as A1 "
         . "join aeroport as A2 "
-        . "on numVol=numero and A2.numAero=arrivee and  A1.numAero=depart ";
+        . "on numVol=numero and A2.numAero=arrivee and  A1.numAero=depart where numResa=$numResa";
        // . "where numResa=$numResa ";
 // Remplissage d'un tableau correspondant � chaque vol
    $bdd= connect();

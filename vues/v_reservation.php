@@ -8,23 +8,22 @@
                     <th>Action </th>
                 </tr>
     <?php
-        $i=0;
         foreach($reservations as $uneResa)
         {
             $nomClient=$uneResa['nomClient'];
             $prenomClient=$uneResa['prenomClient'];
             $numeroVol=$uneResa['numero'];
-            $qdPlace=$uneResa['qdPlace'];
+            $nbPlace=$_SESSION["nbPlace"]=$qdPlace=$uneResa['qdPlace'];
+            $numResa=$_SESSION["numResa"]=$uneResa['numResa'];
             echo"
                 <tr>
                     <td>$nomClient</td>
                     <td>$prenomClient</td>
                     <td>$numeroVol</td>
                     <td>$qdPlace</td>
-                    <td><a href='index.php?action=pdf&numResa=$i'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime&numResa=$i'><img src='images/supprime_icon.gif'> </a></td>
+                    <td><a href='index.php?action=pdf&numResa=$numResa'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime&numResa=$numResa&nbPlace=$nbPlace'><img src='images/supprime_icon.gif'> </a></td>
                 </tr>
             ";
-            $i++;
         }
     ?>
     </table>

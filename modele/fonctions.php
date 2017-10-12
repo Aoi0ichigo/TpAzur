@@ -207,7 +207,7 @@
             while($ligne=$sql->fetch(PDO::FETCH_OBJ))
             { 
                 $numResa[$i]= [
-                    "nomClient"=>$ligne->nomClient,
+                    "numResa"=>$ligne->numResa,
                 ];
                 $i++;
             }

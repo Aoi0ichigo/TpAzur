@@ -164,6 +164,7 @@
         }
     }
     function annulation(){
+         require dirname(__FILE__)."/Connection.php";
         $nbPlace=$_SESSION['nbPlace'];
         $num=$_SESSION['num'];
         $requete="delete from reservation where numResa=num ";
@@ -192,10 +193,12 @@
     }
     
     function numResa(){
+         require dirname(__FILE__)."/Connection.php";
         $numero=array();
-        $numResa=$_REQUEST["numRsa"];
+        $num=$_REQUEST["numResa"];
         $req="select numResa from reservation";
         $i=0;
+        $bdd=connect();
         try 
         {	
             $sql = $bdd->prepare($req);
@@ -203,7 +206,7 @@
             while($ligne=$sql->fetch(PDO::FETCH_OBJ))
             { 
                 $numResa[$i]= [
-                    "nomClient"=>$ligne->nomClient,
+                    "numResa"=>$ligne->numResa,
                 ];
                 $i++;
             }
@@ -215,6 +218,6 @@
         for($r=0;$r<$i;$r++){
             array_push($numero,$numResa[$r]);
         }
-        return $numero["$numResa"];
+        return $numero["$num"];
     }
- ?>
+?>

@@ -56,7 +56,7 @@ and open the template in the editor.
                         break;
                     case 'pdf':
                         include 'modele/fonctions.php';
-                        $numResa= numResa();
+                        $_SESSION["numResa"]= numResa();
                         header('location:fpdf/pdf.php');
                         break;
                     case 'supprime':

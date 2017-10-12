@@ -61,7 +61,7 @@ and open the template in the editor.
                         break;
                     case 'supprime':
                         include 'modele/fonctions.php';
-                        $numResa= numResa();
+                        $_SESSION["numResa"]= numResa();
                         annulation();
                         break;
                 }

@@ -196,7 +196,7 @@
     function numResa(){
          require dirname(__FILE__)."/Connection.php";
         $numero=array();
-        $numResa=$_REQUEST["numResa"];
+        $num=$_REQUEST["numResa"];
         $req="select numResa from reservation";
         $i=0;
         $bdd=connect();
@@ -219,6 +219,6 @@
         for($r=0;$r<$i;$r++){
             array_push($numero,$numResa[$r]);
         }
-        return $numero["$numResa"];
+        return $numero["$num"];
     }
 ?>

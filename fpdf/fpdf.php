@@ -1,4 +1,6 @@
 <?php
+
+
 define('FPDF_VERSION','1.6');
 
 class FPDF

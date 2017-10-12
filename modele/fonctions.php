@@ -163,26 +163,31 @@
             echo "Erreur dans la requ�te" . $e->getMessage();
         }
     }
-    function annulation(){
-        require dirname(__FILE__)."/Connection.php";
-        $num=$_SESSION['numResa'];
-        $requete="delete from reservation where numResa=$num ";
-        $r="select nbPlace from reservation where numResa=$num ";
-        $req="update vol set nbPlace=nbPlace+$nbPlace where numVol='$numero' ";
+    function nbPlace(){
         $bdd=connect();
+        $r="select nbPlace from reservation where numResa=$num ";
         try 
         {	
             $sql = $bdd->prepare($r);
             $sql->execute();
             while($ligne=$sql->fetch(PDO::FETCH_OBJ))
             { 
-                $nbPlace=$ligne->nbPlace;
+                $ligne->nbPlace;
             } 
         }
         catch(PDOException $e)
         {
             echo "Erreur dans la requ�te" . $e->getMessage();
         }
+        return $ligne;
+    }
+    function annulation(){
+        //require dirname(__FILE__)."/Connection.php";
+        $num=$_SESSION['numResa'];
+        $nbPlace=$_SESSION["nbPlace"];
+        $requete="delete from reservation where numResa=$num ";
+        $req="update vol set nbPlace=nbPlace+$nbPlace where numVol='$numero' ";
+        $bdd->connect();
         try 
         {	
             $sql = $bdd->prepare($req);

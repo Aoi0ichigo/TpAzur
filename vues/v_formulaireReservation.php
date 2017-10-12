@@ -21,11 +21,11 @@
             </p>
             <p>
                 <label>Adresse</label>
-                <input type="email" name="adresse" size="40" />
+                <input type="text" name="adresse" size="40" />
             </p>
             <p>
                 <label>Mail</label>
-                <input type="text" name="mail"  size="40" />
+                <input type="email" name="mail"  size="40" />
             </p>
             <p>
                 <label>Nombre de passager</label>

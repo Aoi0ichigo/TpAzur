@@ -193,10 +193,10 @@
     }
     
     function numResa(){
-         require dirname(__FILE__)."/Connection.php";
+        require dirname(__FILE__)."/Connection.php";
         $numero=array();
         $num=$_REQUEST["numResa"];
-        $req="select numResa from reservation";
+        $req="select numResa ,nbPlace from reservation";
         $i=0;
         $bdd=connect();
         try 
@@ -205,6 +205,7 @@
             $sql->execute();
             while($ligne=$sql->fetch(PDO::FETCH_OBJ))
             { 
+                $_SESSION['nbPlace']=$ligne->nbPlace;
                 $numResa[$i]= [
                     "numResa"=>$ligne->numResa,
                 ];

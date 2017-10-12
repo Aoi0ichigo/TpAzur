@@ -21,7 +21,7 @@
                     <td>$prenomClient</td>
                     <td>$numeroVol</td>
                     <td>$qdPlace</td>
-                    <td><a href='index.php?action=pdf&numResa=$i'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime'><img src='images/supprime_icon.gif'> </a></td>
+                    <td><a href='index.php?action=pdf&numResa=$i'><img src='images/pdf_icon.gif'> </a> <a href='index.php?action=supprime&numResa=$i'><img src='images/supprime_icon.gif'> </a></td>
                 </tr>
             ";
             $i++;

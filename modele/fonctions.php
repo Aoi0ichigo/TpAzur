@@ -148,7 +148,6 @@
         }
     }
     function nbPlaceV(){
-         require dirname(__FILE__)."/Connection.php";
         $nbPlace= $_SESSION["nbPlace"];
         $numero = $_SESSION["numero"];
         $requete="update vol set nbPlace=nbPlace-$nbPlace where numero='$numero' ";
